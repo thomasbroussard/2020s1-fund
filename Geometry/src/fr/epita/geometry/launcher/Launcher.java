@@ -13,6 +13,7 @@ public class Launcher {
 		Circle c1 = new Circle(3);
 		System.out.println(c1.calculatePerimeter());
 		
+		//this is a teacher comment
 		Square s1 = new Square(5);
 		
 		System.out.println(s1.calculateArea());
