@@ -1,6 +1,6 @@
 package fr.epita.geometry.datamodel;
 
-public class Triangle {
+public class Triangle implements Shape {
 	
 	private double sideA;
 	private double sideB;
@@ -48,6 +48,8 @@ public class Triangle {
 	public double calculatePerimeter() {
 		return this.base + this.sideA + this.sideB;
 	}
+
+
 	
 	
 	
