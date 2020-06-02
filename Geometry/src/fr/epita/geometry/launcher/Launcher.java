@@ -31,8 +31,6 @@ public class Launcher {
 //		}
 		
 		// List<Triangle> --> | map: f(t) -> t.calculateArea() | reduce : sum(area)
-
-			
 		
 		Circle c1 = new Circle(3);
 		Circle c2 = new Circle(7);
