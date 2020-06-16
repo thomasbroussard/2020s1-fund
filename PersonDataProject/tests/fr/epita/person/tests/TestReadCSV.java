@@ -1,44 +1,16 @@
 package fr.epita.person.tests;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 
 import fr.epita.person.datamodel.Person;
+import fr.epita.person.services.PersonCSVDAO;
 
 public class TestReadCSV {
 	
 	public static void main(String[] args) {
-		
-		File file = new File("data.csv");
-		List<String> lines;
-		try {
-			lines = Files.readAllLines(file.toPath());
-		} catch (IOException e) {
-			System.out.println("unable to load the file, " + e.getMessage());
-			System.out.println("check the configuration, the program must exit now");
-			return;
-		}
-		List<Person> persons = new ArrayList<>();
-		lines.remove(0);
-		for(int i = 0; i < lines.size(); i++) {
-			
-			String csvLine = lines.get(i); 
-			
-			
-			String[] lineParts = csvLine.split(",");
-			Person p = new Person();
-			
-			p.setName(lineParts[0]);
-			p.setSex(lineParts[1]);
-			p.setAge(Integer.valueOf(lineParts[2].strip()));
-			p.setHeight(Integer.valueOf(lineParts[3].strip()));
-			p.setWeight(Integer.valueOf(lineParts[4].strip()));
-			
-			persons.add(p);
-		}
+		PersonCSVDAO dao = new PersonCSVDAO();
+		List<Person> persons = dao.readAll(new File("data.csv"));
 		System.out.println(persons);
 		
 	}
