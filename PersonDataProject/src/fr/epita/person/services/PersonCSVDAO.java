@@ -13,10 +13,10 @@ import fr.epita.person.datamodel.Person;
 public class PersonCSVDAO {
 	
 	public List<Person> readAll(File dataFile){
-		File file = new File("data-2.csv");
+	
 		List<String> lines;
 		try {
-			lines = Files.readAllLines(file.toPath());
+			lines = Files.readAllLines(dataFile.toPath());
 		} catch (IOException e) {
 			System.out.println("unable to load the file, " + e.getMessage());
 			System.out.println("check the configuration, the program must exit now");

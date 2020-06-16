@@ -18,8 +18,12 @@ public class TestStats {
 		for (Person person : persons) {
 			totalAge += person.getAge();
 		}
-		double averageAge = totalAge / persons.size();
+		double averageAge = Double.valueOf(totalAge) / persons.size();
 		System.out.println("average age = " + averageAge);
+		
+		persons.stream()
+			.mapToInt(Person::getAge)
+			.average();
 		
 	}
 
