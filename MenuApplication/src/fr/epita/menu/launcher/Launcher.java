@@ -23,6 +23,7 @@ public class Launcher {
 				System.out.println("Menu, please choose one action (Create = c, Update = u, Delete = d, Quit = q)");
 				System.out.println("what is your choice ? (c|u|d|q)");
 				answer = scanner.nextLine();
+				scanner.nextDouble();
 				switch (answer) {
 				case "c":
 					System.out.println("welcome to create");
