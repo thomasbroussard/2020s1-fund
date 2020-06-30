@@ -40,10 +40,11 @@ public class Person {
 	public void setWeight(Integer weight) {
 		this.weight = weight;
 	}
+	
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", sex=" + sex + ", age=" + age + ", height=" + height + ", weight=" + weight
-				+ "]";
+		return "\n { name=" + name + ", sex=" + sex + ", age=" + age + ", height=" + height + ", weight=" + weight
+				+ "}";
 	}
 	
 	
