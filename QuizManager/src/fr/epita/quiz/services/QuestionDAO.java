@@ -1,5 +1,7 @@
 package fr.epita.quiz.services;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,8 +15,9 @@ public class QuestionDAO {
 	
 	//CRUD : CREATE, READ, UPDATE, DELETE
 	public void create(Question question) throws SQLException {
+		Configuration conf = Configuration.getInstance();
 		String SQL_QUERY = "INSERT INTO QUESTION(SUBJECT, TOPICS, DIFFICULTY) VALUES(?, ?, ?);";
-		Connection connection = DriverManager.getConnection("jdbc:h2:~/quiz", "sa", ""); //TODO : externalize
+		Connection connection = DriverManager.getConnection(conf.getConfValue("db.url"), conf.getConfValue("db.user"), conf.getConfValue("db.password") ); //TODO : externalize
 		PreparedStatement pstmt = connection.prepareStatement(SQL_QUERY);
 		pstmt.setString(1, question.getSubject());
 		String arrayAsString = String.valueOf(question.getTopics());
